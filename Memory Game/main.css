@@ -1,0 +1,75 @@
+* {
+  box-sizing: border-box;
+}
+body {
+  font-family: Verdana, Tahoma, sans-serif;
+}
+
+.info-container {
+  margin: 20px auto 0;
+  width: 700px;
+  background-color: #f7f7f7;
+  padding: 10px;
+  font-size: 16px;
+  font-weight: 400;
+  border: 2px solid #00bcd4;
+}
+
+.game-blocks {
+  display: flex;
+  flex-wrap: wrap;
+  width: 560px;
+  margin: 20px auto;
+}
+
+.game-blocks.no-click {
+  pointer-events: none;
+}
+
+.game-blocks .block {
+  height: 130px;
+  flex: 1 0 130px;
+  margin: 0 5px 10px;
+  transition: transform 0.5s;
+  transform-style: preserve-3d;
+  cursor: pointer;
+  position: relative;
+}
+
+.game-blocks .block.is-matched,
+.game-blocks .block.is-fliped {
+  -webkit-transform: rotateX(180deg);
+  -moz-transform: rotateX(180deg);
+  transform: rotateX(180deg);
+  pointer-events: none;
+}
+
+.game-blocks .block .front:before {
+  content: "!";
+  color: #fff;
+  font-size: 100px;
+  font-weight: 800;
+}
+
+.game-blocks .block .front {
+  background-color: #333;
+  line-height: 115px;
+}
+
+.game-blocks .block .back {
+  transform: rotateX(180deg);
+}
+
+.game-blocks .block .back img {
+  width: 120px;
+  height: 120px;
+}
+
+.game-blocks .block .face {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  backface-visibility: hidden;
+  border: 5px solid #00bcd4;
+}
